@@ -1,24 +1,20 @@
-﻿namespace Taps
+﻿using System.Diagnostics;
+
+namespace Taps
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
-
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnTap(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Debug.WriteLine(">>> OnTap Called");
+        }
+        private void OnDoubleTap(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
+        {
+            Debug.WriteLine(">>> OnDoubleTap Called");
         }
     }
 }
